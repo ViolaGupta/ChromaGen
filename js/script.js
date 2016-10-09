@@ -97,7 +97,7 @@ function updateUI2(color,color2){
         document.getElementById('generate').style.background = "linear-gradient("+color+", "+color2+")";
         document.getElementById('copyall').style.background = "linear-gradient("+color+", "+color2+")";
         document.getElementById('gradient').style.background = "linear-gradient("+color+", "+color2+")";
-        document.getElementById('clipboard').setAttribute("data-clipboard-text", formatColor(color));
+        document.getElementById('clipboard').setAttribute("data-clipboard-text", formatColor2(color,color2));
     }
 }
 function updateUI(color){
@@ -114,6 +114,11 @@ function updateUI(color){
 function formatColor(color) {
     color = convertColor(color, format);
     return color;
+}
+function formatColor2(color,color2) {
+    color = convertColor(color, format);
+    color2 = convertColor(color2, format);
+    return "linear-gradient("+color+", "+color2+")";
 }
 
 function toast(yo) {
