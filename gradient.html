@@ -1,0 +1,106 @@
+<!--
+@Author: gyanl, ananayarora
+@Date:   2016-09-29T09:54:38+05:30
+@Last modified by:   ananayarora
+@Last modified time: 2016-09-29T10:27:24+05:30
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A Colour A Day</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.10/clipboard.min.js"></script>
+ 
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+           
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(red, yellow);
+            
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body onload="start()">
+    <div class="box">
+        <center>
+            <div class="header">
+                ChromaGen
+            </div>
+            <div class="subheader">
+                A random color generator.
+            </div>
+            <p></p>
+            <form>
+                <input type="radio" name="colorformat" id="hex" value="hex" onClick="changeColorFormat()" checked><div class="option">HEX </div>
+                <input type="radio" name="colorformat" id="hsl" value="hsl" onClick="changeColorFormat()"><div class="option">HSL </div>
+                <input type="radio" name="colorformat" id="rgb" value="rgb" onClick="changeColorFormat()"><div class="option">RGB </div>
+            </form>
+            <br />
+            <button class="btn" id='generate' onclick="changeColour(-1)">Randomize</button>
+            <br /><br />
+            <button class="btn" id='clipboard' data-clipboard-text="1" onclick="toast(this)">Copy</button>
+            <br /><br />
+            <button class="btn" id='copyall' data-clipboard-text="1" onclick="copyAll(this)">Copy all</button>
+            <br /><br />
+             <button class="btn" id='gradient' data-clipboard-text="1" onclick="changeGradient(-1)">Gradient</button>
+            <br /><br />
+            <div class="toasty" id="toast">
+                Welcome to ChromaGen!
+            </div>
+            <br /><br /><br />
+            <button id="c0" class="circle" onclick="changeColour(0)"></button>
+            <button id="c1" class="circle" onclick="changeColour(1)"></button>
+            <button id="c2" class="circle" onclick="changeColour(2)"></button>
+            <button id="c3" class="circle" onclick="changeColour(3)"></button>
+            <button id="c4" class="circle" onclick="changeColour(4)"></button>
+            <button id="c5" class="circle" onclick="changeColour(5)"></button>
+        </center>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    
+<script>
+    /*
+$(document).ready(function(){
+     function genColor() {
+    var a = "";
+    for (var i = 0; i < 3; i++)
+        a = a.concat(Math.floor(Math.random() * 255).toString(16));
+
+    if (a.length < 6) {
+        for (var i = 0; i < (6 - a.length); i++)
+            a = "0" + a;
+    }
+    return "#" + a;
+}
+    $("#gradient").click(function(){
+        var a = genColor();
+        var b = genColor();
+        $("#copyall").text(a);
+        $("body").css("background", "linear-gradient("+a+", "+b+")");
+        $("#c0").css("background", "linear-gradient("+a+", "+b+")");
+        $("#c1").css("background", "linear-gradient("+a+", "+b+")");
+        $("#c2").css("background", "linear-gradient("+a+", "+b+")");
+        $("#c3").css("background", "linear-gradient("+a+", "+b+")");
+        $("#c4").css("background", "linear-gradient("+a+", "+b+")");
+        $("#c5").css("background", "linear-gradient("+a+", "+b+")");
+    });
+    
+});
+   */
+</script>
+</body>
+
+</html>

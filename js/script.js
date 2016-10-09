@@ -67,13 +67,46 @@ function changeColour(num) {
     }
     updateUI(new_color);
 }
-
+function changeGradient(num) {
+    
+    if (num !== -1) {
+        currentColor = num;
+        new_color = newColour[num];
+        synchronize();
+        //outline();  either use the fn or just write the code here.
+    } else {
+       new_color = genColor();
+      new_color2 = genColor();
+       
+        newColour.unshift(new_color);
+        newColour.unshift(new_color2);
+        currentColor = 0;
+        for (var i = 0; i < 6; i++) {
+            var div_id = "c" + (i);
+            document.getElementById(div_id).style.background = "linear-gradient("+newColour[i]+", "+newColour[i+1]+")";  
+            document.getElementById('c0').focus();
+        }
+        clearFocus();
+    }
+    updateUI2(new_color,new_color2);
+}
+function updateUI2(color,color2){
+    if(color){
+        document.body.style.background = "linear-gradient("+color+", "+color2+")";
+        document.getElementById('clipboard').style.background = "linear-gradient("+color+", "+color2+")";
+        document.getElementById('generate').style.background = "linear-gradient("+color+", "+color2+")";
+        document.getElementById('copyall').style.background = "linear-gradient("+color+", "+color2+")";
+        document.getElementById('gradient').style.background = "linear-gradient("+color+", "+color2+")";
+        document.getElementById('clipboard').setAttribute("data-clipboard-text", formatColor(color));
+    }
+}
 function updateUI(color){
     if(color){
         document.body.style.backgroundColor = color;
         document.getElementById('clipboard').style.background = color;
         document.getElementById('generate').style.background = color;
         document.getElementById('copyall').style.background = color;
+        document.getElementById('gradient').style.background = color;
         document.getElementById('clipboard').setAttribute("data-clipboard-text", formatColor(color));
     }
 }
